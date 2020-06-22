@@ -18,6 +18,39 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/end');
 	}
 
+	public function login()
+	{
+		$data['title'] = "Login Admin";
+
+		$this->form_validation->set_rules('username', 'Username', 'required|trim');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		
+		if ($this->form_validation->run() == false) {
+			$this->load->view('admin/login', $data);
+		} else {
+			$this->_login();
+		}
+	}
+
+	private function _login() {
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
+
+    $admin = $this->db->get_where('admin', ['username' => $username, 'password' => $password])->row_array();
+
+    if ($admin) {
+      $data = [
+        'id' 			 => $admin['id'],
+        'username' => $admin['username']
+      ];
+      $this->session->set_userdata($data);
+      redirect('admin/dashboard');
+    } else {
+      $this->session->set_flashdata('flash', 'Username / Password salah');
+      redirect('admin/login');
+    }
+  }
+
 	public function profile()
 	{
 		$data['title'] = "Profile";

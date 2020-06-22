@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sanggar Seni Asem Gede | Log in</title>
+  <title><?=$title?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,28 +21,50 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index.html">Sanggar Seni <b>Asem Gede</b></a>
+    <a href="<?= base_url(); ?>">Sanggar Seni <b>Asem Gede</b></a>
   </div>
+
+  <!-- notif -->
+  <?php if ($this->session->flashdata('flash')) : ?>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong><?= $this->session->flashdata('flash'); ?></strong> 
+  </div>
+  
+  <script>
+    $(".alert").alert();
+  </script>
+  <?php endif; ?>
+
   <!-- /.login-logo -->
   <div class="card">
+    <div class="card-header">
+      <h5 class="text-center">Log In Administrator</h5>
+    </div>
     <div class="card-body login-card-body">
-      <form action="<?=base_url().'admin';?>" method="post">
+      <form action="<?= base_url().'admin/login';?>" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
+
+        <small class="form-text text-danger"><?= form_error('username'); ?></small>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <small class="form-text text-danger"><?= form_error('password'); ?></small>
+        
         <div class="row">
           <!-- <div class="col-8">
             <div class="icheck-primary">
@@ -54,7 +76,7 @@
           </div> -->
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Log In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -66,6 +88,11 @@
   </div>
 </div>
 <!-- /.login-box -->
+<div class="row">
+  <div class="col-md-12">
+  
+  </div>
+</div>
 
 <!-- jQuery -->
 <script src="<?=base_url().'assets/admin/';?>plugins/jquery/jquery.min.js"></script>
