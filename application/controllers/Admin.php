@@ -134,8 +134,9 @@ class Admin extends CI_Controller {
 		}
 
 		$data['title'] = "Tambah Galeri";
+		$this->load->model('ModelGaleri');
 
-		$this->form_validation->set_rules('foto', 'Foto', 'required');
+		// $this->form_validation->set_rules('foto', 'Foto', 'required');
 		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 		
 		
@@ -144,9 +145,21 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/galeri-tambah');
 			$this->load->view('admin/end');
 		} else {
-			$this->ModelGaleri->insertGaleri();
-			$this->session->set_flashdata('flash', 'Galeri berhasil ditambahkan.');
-			redirect('admin/galeri');
+			$config['upload_path']          = './upload/galeri/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+			$config['file_name']            = mt_rand(00000, 99999);
+			$config['overwrite']			      = true;
+			$config['max_size']             = 1024; 
+			// $config['max_width']            = 1024;
+			// $config['max_height']           = 768;
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				$this->ModelGaleri->insertGaleri();
+				$this->session->set_flashdata('flash', 'Galeri berhasil ditambahkan.');
+				redirect('admin/galeri');
+			}
 		}
 
 		
@@ -160,24 +173,38 @@ class Admin extends CI_Controller {
 
 		$data['title'] = "Edit Galeri";
 
-		$this->load->model('ModelProfile');
+		$this->load->model('ModelGaleri');
 		$data['galeri'] = $this->ModelGaleri->getGaleri($id);
 
-
-		$this->form_validation->set_rules('foto', 'Foto', 'required');
+		// $this->form_validation->set_rules('foto', 'Foto', 'isset');
 		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
-		
 		
 		if($this->form_validation->run() == False) {
 			$this->load->view('admin/start', $data);
 			$this->load->view('admin/galeri-edit');
 			$this->load->view('admin/end');
 		} else {
-			$this->ModelGaleri->insertGaleri();
-			$this->session->set_flashdata('flash', 'Galeri berhasil diubah.');
-			redirect('admin/galeri');
+			$config['upload_path']          = './upload/galeri/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+			$config['file_name']            = $data['galeri']['foto'];
+			$config['overwrite']			      = true;
+			$config['max_size']             = 1024; 
+			// $config['max_width']            = 1024;
+			// $config['max_height']           = 768;
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				$this->ModelGaleri->updateGaleri($id);
+				$this->session->set_flashdata('flash', 'Galeri berhasil diubah.');
+				redirect('admin/galeri');
+			}else{
+				$this->session->set_flashdata('flash', 'Galeri gagal diubah.');
+				redirect('admin/galeri');
+			}
 		}
 	}
+
 
 	public function galeriHapus($id)
 	{
@@ -185,9 +212,9 @@ class Admin extends CI_Controller {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Edit Galeri";
+		$data['title'] = "Hapus Galeri";
 		$this->load->model('ModelGaleri');
-		$this->ModelPeserta->deleteGaleri($id);
+		$this->ModelGaleri->deleteGaleri($id);
 
 		$this->session->set_flashdata('flash', 'Berhasil menghapus galeri.');
 		redirect('admin/galeri');

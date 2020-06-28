@@ -38,7 +38,7 @@
                 <form action="" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="foto">Foto</label>
-                    <input type="file" class="form-control-file" name="foto" id="foto"  placeholder="Foto">
+                    <input type="file" class="form-control-file" name="foto" id="foto"  placeholder="Foto" required>
                     <small class="form-text text-danger"><?= form_error('foto'); ?></small>
                   </div>
                   <div class="form-group">
