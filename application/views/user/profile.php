@@ -41,58 +41,84 @@
                 <form action="" method="post">
 
                   <div class="form-group">
-                    <label for="sejarah">Sejarah</label>
-                    <textarea class="form-control" name="sejarah" id="sejarah" placeholder="Sejarah"><?= $profile['sejarah']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('sejarah'); ?></small>
+                    <label for="nama_lengkap">Nama Lengkap</label>
+                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="nama_lengkap" value="<?= $peserta['nama_lengkap']; ?>">
+                    <small class="form-text text-danger"><?= form_error('nama_lengkap'); ?></small>
                   </div>
     
                   <div class="form-group">
-                    <label for="tujuan">Tujuan</label>
-                    <textarea class="form-control" name="tujuan" id="tujuan" placeholder="Tujuan"><?= $profile['tujuan']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('tujuan'); ?></small>
+                    <label for="nama_panggilan">Nama Panggilan</label>
+                    <input type="text" class="form-control" name="nama_panggilan" id="nama_panggilan" placeholder="nama_panggilan" value="<?= $peserta['nama_panggilan']; ?>">
+                    <small class="form-text text-danger"><?= form_error('nama_panggilan'); ?></small>
                   </div>
-    
+
                   <div class="form-group">
-                    <label for="fungsi">Fungsi</label>
-                    <textarea class="form-control" name="fungsi" id="fungsi" placeholder="Fungsi"><?= $profile['fungsi']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('fungsi'); ?></small>
+                    <label for="jk">Jenis Kelamin</label>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="jk" id="jk" value="L" <?= ($peserta['jk']=='L' ? 'checked' : ''); ?> >
+                        Laki-laki
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="jk" id="jk" value="P"  <?= ($peserta['jk']=='P' ? 'checked' : ''); ?>>
+                        Perempuan
+                      </label>
+                    </div>
+                    <small class="form-text text-danger"><?= form_error('jk'); ?></small>
                   </div>
-    
+
+                  <div class="form-group">
+                    <label for="tmpt_lahir">Tempat Lahir</label>
+                    <input type="text" class="form-control" name="tmpt_lahir" id="tmpt_lahir" placeholder="tmpt_lahir" value="<?= $peserta['tmpt_lahir']; ?>">
+                    <small class="form-text text-danger"><?= form_error('tmpt_lahir'); ?></small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tgl_lahir">Tanggal Lahir</label>
+                    <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" placeholder="tgl_lahir" value="<?= $peserta['tgl_lahir']; ?>">
+                    <small class="form-text text-danger"><?= form_error('tgl_lahir'); ?></small>
+                  </div>
+
                   <div class="form-group">
                     <label for="no_hp">No. HP</label>
-                    <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="No. HP" value="<?= $profile['no_hp']; ?>">
+                    <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="no_hp" value="<?= $peserta['no_hp']; ?>">
                     <small class="form-text text-danger"><?= form_error('no_hp'); ?></small>
                   </div>
     
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?= $profile['email']; ?>">
-                    <small class="form-text text-danger"><?= form_error('email'); ?></small>
+                    <label for="sekolah">Sekolah</label>
+                    <input type="text" class="form-control" name="sekolah" id="sekolah" placeholder="sekolah" value="<?= $peserta['sekolah']; ?>">
+                    <small class="form-text text-danger"><?= form_error('sekolah'); ?></small>
                   </div>
     
                   <div class="form-group">
-                    <label for="misi">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="alamat" placeholder="Alamat"><?= $profile['alamat']; ?></textarea>
+                    <label for="kelas">Kelas / Tingkat</label>
+                    <input type="number" class="form-control" name="kelas" id="kelas" placeholder="kelas" value="<?= $peserta['kelas']; ?>">
+                    <small class="form-text text-danger"><?= form_error('kelas'); ?></small>
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="divisi">Divisi</label>
+                    <select class="form-control" name="divisi" id="divisi">
+                      <option value="Seni Tari" <?= ($peserta['divisi']=="Seni Tari" ? 'selected' : '') ; ?>>Seni Tari</option>
+                      <option value="Seni Musik" <?= ($peserta['divisi']=="Seni Musik" ? 'selected' : '') ; ?>>Seni Musik</option>
+                      <option value="Seni Rupa" <?= ($peserta['divisi']=="Seni Rupa" ? 'selected' : '') ; ?>>Seni Rupa</option>
+                      <option value="Seni Terapan" <?= ($peserta['divisi']=="Seni Terapan" ? 'selected' : '') ; ?>>Seni Terapan</option>
+                    </select>
+                    <small class="form-text text-danger"><?= form_error('divisi'); ?></small>
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea class="form-control" name="alamat" id="alamat" placeholder="alamat"><?= $peserta['alamat']; ?></textarea>
                     <small class="form-text text-danger"><?= form_error('alamat'); ?></small>
                   </div>
-
-                  <div class="form-group">
-                    <label for="nama_bank">Nama Bank</label>
-                    <textarea class="form-control" name="nama_bank" id="nama_bank" placeholder="Nama Bank"><?= $profile['nama_bank']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('nama_bank'); ?></small>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="no_rek">No. Rekening</label>
-                    <input type="number" class="form-control" name="no_rek" id="no_rek" placeholder="No. Rekening" value="<?= $profile['no_rek']; ?>">
-                    <small class="form-text text-danger"><?= form_error('no_rek'); ?></small>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="atas_nama">Atas Nama</label>
-                    <textarea class="form-control" name="atas_nama" id="atas_nama" placeholder="Atas Nama"><?= $profile['atas_nama']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('atas_nama'); ?></small>
-                  </div>
+    
+                  
+    
+                  
     
                   <button type="submit" class="btn btn-success">Simpan</button>
                   <button type="reset" class="btn btn-danger">Reset</button>
