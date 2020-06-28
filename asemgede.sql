@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 28, 2020 at 07:25 AM
+-- Generation Time: Jun 28, 2020 at 09:23 AM
 -- Server version: 10.4.8-MariaDB-log
 -- PHP Version: 7.4.2
 
@@ -53,6 +53,15 @@ CREATE TABLE `galeri` (
   `foto` varchar(255) NOT NULL,
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galeri`
+--
+
+INSERT INTO `galeri` (`id`, `foto`, `keterangan`) VALUES
+(10, '93399.png', 'AS'),
+(11, '90729.png', 'asd'),
+(12, '9391.jpeg', 'mamama');
 
 -- --------------------------------------------------------
 
@@ -182,6 +191,12 @@ ALTER TABLE `profile`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `galeri`
+--
+ALTER TABLE `galeri`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pendaftaran`
