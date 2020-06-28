@@ -38,6 +38,8 @@ class Page extends CI_Controller {
 
 		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
     $this->form_validation->set_rules('nama_panggilan', 'Nama Panggilan', 'required');
+    $this->form_validation->set_rules('username', 'Username', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
     $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
     $this->form_validation->set_rules('tmpt_lahir', 'Tempat Lahir', 'required');
     $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');

@@ -21,6 +21,16 @@
 								<small class="form-text text-danger"><?= form_error('nama_panggilan'); ?></small>
 							</div>
 							<div class="mt-10">
+								<label><b>Username</b></label>
+								<input type="text" name="username" required class="form-control">
+								<small class="form-text text-danger"><?= form_error('username'); ?></small>
+							</div>
+							<div class="mt-10">
+								<label><b>Password</b></label>
+								<input type="text" name="password" required class="form-control">
+								<small class="form-text text-danger"><?= form_error('password'); ?></small>
+							</div>
+							<div class="mt-10">
 								<label><b>Jenis Kelamin</b></label>
 									<div class="form-check">
 										<label class="form-check-label">

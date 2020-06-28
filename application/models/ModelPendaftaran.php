@@ -13,6 +13,8 @@ class ModelPendaftaran extends CI_model {
     $data = [
       "nama_lengkap"    => $this->input->post('nama_lengkap', true),
       "nama_panggilan"  => $this->input->post('nama_panggilan', true),
+      "username"        => $this->input->post('username', true),
+      "password"        => $this->input->post('password', true),
       "jk"              => $this->input->post('jk', true),
       "tmpt_lahir"      => $this->input->post('tmpt_lahir', true),
       "tgl_lahir"       => $this->input->post('tgl_lahir', true),
@@ -32,6 +34,8 @@ class ModelPendaftaran extends CI_model {
     $data = [
       "nama_lengkap"    => $pd['nama_lengkap'],
       "nama_panggilan"  => $pd['nama_panggilan'],
+      "username"        => $pd['username'],
+      "password"        => $pd['password'],
       "jk"              => $pd['jk'],
       "tmpt_lahir"      => $pd['tmpt_lahir'],
       "tgl_lahir"       => $pd['tgl_lahir'],
