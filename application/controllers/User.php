@@ -57,6 +57,14 @@ class User extends CI_Controller {
       redirect('user/login');
     }
 	}
+
+	public function logout()  {
+    
+    $this->session->unset_userdata('id');
+		$this->session->unset_userdata('username');
+		
+    redirect('user/login');
+  }
 	
 	public function profile() {
 		$data['title'] = "Profil";

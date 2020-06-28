@@ -49,6 +49,14 @@ class Admin extends CI_Controller {
       $this->session->set_flashdata('flash', 'Username / Password salah');
       redirect('admin/login');
     }
+	}
+	
+	public function logout()  {
+    
+    $this->session->unset_userdata('id');
+		$this->session->unset_userdata('username');
+		
+    redirect('admin/login');
   }
 
 	public function profile()

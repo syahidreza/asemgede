@@ -46,7 +46,7 @@
       <!-- Messages Dropdown Menu -->
 
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url().'login';?>" >
+        <a class="nav-link" href="<?=base_url().'admin/logout';?>" >
           <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
         </a>
       </li>
