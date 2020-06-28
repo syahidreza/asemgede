@@ -44,7 +44,7 @@
       <h5 class="text-center">Log In User</h5>
     </div>
     <div class="card-body login-card-body">
-      <form action="<?= base_url().'admin/login';?>" method="post">
+      <form action="<?= base_url().'user/login';?>" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">

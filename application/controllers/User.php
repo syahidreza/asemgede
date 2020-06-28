@@ -5,17 +5,24 @@ class User extends CI_Controller {
 	public function index()
 	{
     $data['title'] = "Dashboard";
-		$this->load->view('admin/start', $data);
-		$this->load->view('admin/index');
-		$this->load->view('admin/end');
+
+    $this->load->model('ModelPeserta');
+    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id);
+
+		$this->load->view('user/start', $data);
+		$this->load->view('user/index', $data);
+		$this->load->view('user/end');
 	}
 
 	public function dashboard()
 	{
     $data['title'] = "Dashboard";
-		$this->load->view('admin/start', $data);
-		$this->load->view('admin/index');
-		$this->load->view('admin/end');
+    $this->load->model('ModelPeserta');
+    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id);
+
+		$this->load->view('user/start', $data);
+		$this->load->view('user/index', $data);
+		$this->load->view('user/end');
 	}
 
 	public function login()
@@ -26,7 +33,7 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
 		
 		if ($this->form_validation->run() == false) {
-			$this->load->view('admin/login', $data);
+			$this->load->view('user/login', $data);
 		} else {
 			$this->_login();
 		}
@@ -36,18 +43,18 @@ class User extends CI_Controller {
     $username = $this->input->post('username');
     $password = $this->input->post('password');
 
-    $admin = $this->db->get_where('admin', ['username' => $username, 'password' => $password])->row_array();
+    $user = $this->db->get_where('peserta', ['username' => $username, 'password' => $password])->row_array();
 
-    if ($admin) {
+    if ($user) {
       $data = [
-        'id' 			 => $admin['id'],
-        'username' => $admin['username']
+        'id' 			 => $user['id'],
+        'username' => $user['username']
       ];
       $this->session->set_userdata($data);
-      redirect('admin/dashboard');
+      redirect('user/dashboard');
     } else {
       $this->session->set_flashdata('flash', 'Username / Password salah');
-      redirect('admin/login');
+      redirect('user/login');
     }
   }
 }
