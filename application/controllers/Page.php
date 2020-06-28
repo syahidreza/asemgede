@@ -5,17 +5,17 @@ class Page extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Home";
-		$this->load->view('user/start', $data);
-		$this->load->view('user/home');
-		$this->load->view('user/end');
+		$this->load->view('public/start', $data);
+		$this->load->view('public/home');
+		$this->load->view('public/end');
 	}
 
 	public function home()
 	{
 		$data['title'] = "Home";
-		$this->load->view('user/start', $data);
-		$this->load->view('user/home');
-		$this->load->view('user/end');
+		$this->load->view('public/start', $data);
+		$this->load->view('public/home');
+		$this->load->view('public/end');
 	}
 
 	public function profile()
@@ -25,9 +25,9 @@ class Page extends CI_Controller {
 		$this->load->model('ModelProfile');
 		$data['profile'] = $this->ModelProfile->getProfile();
 
-		$this->load->view('user/start', $data);
-		$this->load->view('user/profile', $data);
-		$this->load->view('user/end');
+		$this->load->view('public/start', $data);
+		$this->load->view('public/profile', $data);
+		$this->load->view('public/end');
 	}
 
 	public function daftar()
@@ -50,9 +50,9 @@ class Page extends CI_Controller {
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 
 		if($this->form_validation->run() == False) {
-      $this->load->view('user/start', $data);
-			$this->load->view('user/pendaftaran');
-			$this->load->view('user/end');
+      $this->load->view('public/start', $data);
+			$this->load->view('public/pendaftaran');
+			$this->load->view('public/end');
     } else {
       $this->ModelPendaftaran->insertPendaftaran();
       $this->session->set_flashdata('flash', 'Data tersimpan. Anda berhasil mendaftar sebagai peserta kursus.');
@@ -67,9 +67,9 @@ class Page extends CI_Controller {
 		$this->load->model('ModelProfile');
 		$data['profile'] = $this->ModelProfile->getProfile();
 
-		$this->load->view('user/start', $data);
-		$this->load->view('user/pembayaran', $data);
-		$this->load->view('user/end');
+		$this->load->view('public/start', $data);
+		$this->load->view('public/pembayaran', $data);
+		$this->load->view('public/end');
 	}
 
 	
