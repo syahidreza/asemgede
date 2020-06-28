@@ -28,7 +28,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-header">
-      <h5 class="text-center">Choose Login</h5>
+      <h5 class="text-center">Pilih Login</h5>
     </div>
     <div class="card-body login-card-body text-center">
       <div class="btn-group">
