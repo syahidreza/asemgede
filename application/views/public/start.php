@@ -58,6 +58,7 @@
                                         <ul  >        
                                             <li><a href="<?=base_url().'page/home';?>">Home</a></li>
                                             <li><a href="<?=base_url().'page/profile';?>">Profile</a></li>
+                                            <li><a href="<?=base_url().'page/galeri';?>">Galeri</a></li>
                                             <li><a href="<?=base_url().'page/daftar';?>">Daftar</a></li>
                                             <li><a href="<?=base_url().'login';?>">Login</a></li>
                                         </ul>

@@ -38,6 +38,18 @@ class Page extends CI_Controller {
 		$this->load->view('public/end');
 	}
 
+	public function galeri()
+	{
+		$data['title'] = "Galeri";
+
+		$this->load->model('ModelGaleri');
+		$data['galeri'] = $this->ModelGaleri->getAllGaleri();
+
+		$this->load->view('public/start', $data);
+		$this->load->view('public/galeri', $data);
+		$this->load->view('public/end');
+	}
+
 	public function daftar()
 	{
 		$data['title'] = "Pendaftaran";
