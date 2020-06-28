@@ -59,11 +59,14 @@ class Admin extends CI_Controller {
 		$data['profile'] = $this->ModelProfile->getProfile();
 
 		$this->form_validation->set_rules('sejarah', 'Sejarah', 'required');
-		$this->form_validation->set_rules('visi', 'Visi', 'required');
-		$this->form_validation->set_rules('misi', 'Misi', 'required');
+		$this->form_validation->set_rules('tujuan', 'Tujuan', 'required');
+		$this->form_validation->set_rules('fungsi', 'Fungsi', 'required');
 		$this->form_validation->set_rules('no_hp', 'Nomor HP', 'required|numeric');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('nama_bank', 'Nama Bank', 'required');
+		$this->form_validation->set_rules('no_rek', 'No. Rekening', 'required');
+		$this->form_validation->set_rules('atas_nama', 'Atas Nama', 'required');
 		
 		if($this->form_validation->run() == False) {
 			$this->load->view('admin/start', $data);

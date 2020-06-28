@@ -75,6 +75,24 @@
                     <textarea class="form-control" name="alamat" id="alamat" placeholder="Alamat"><?= $profile['alamat']; ?></textarea>
                     <small class="form-text text-danger"><?= form_error('alamat'); ?></small>
                   </div>
+
+                  <div class="form-group">
+                    <label for="nama_bank">Nama Bank</label>
+                    <textarea class="form-control" name="nama_bank" id="nama_bank" placeholder="Nama Bank"><?= $profile['nama_bank']; ?></textarea>
+                    <small class="form-text text-danger"><?= form_error('nama_bank'); ?></small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="no_rek">No. Rekening</label>
+                    <input type="number" class="form-control" name="no_rek" id="no_rek" placeholder="No. Rekening" value="<?= $profile['no_rek']; ?>">
+                    <small class="form-text text-danger"><?= form_error('no_rek'); ?></small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="atas_nama">Atas Nama</label>
+                    <textarea class="form-control" name="atas_nama" id="atas_nama" placeholder="Atas Nama"><?= $profile['atas_nama']; ?></textarea>
+                    <small class="form-text text-danger"><?= form_error('atas_nama'); ?></small>
+                  </div>
     
                   <button type="submit" class="btn btn-success">Simpan</button>
                   <button type="reset" class="btn btn-danger">Reset</button>

@@ -40,7 +40,9 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <h3>Sejarah</h3>
-                                    <?= $profile['sejarah']; ?>
+                                </div>
+                                <div class="text-justify">
+                                    <?= str_replace(PHP_EOL, '<br>', $profile['sejarah']); ?>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +56,9 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <h3>Tujuan</h3>
-                                    <?= $profile['tujuan']; ?>
+                                </div>
+                                <div class="text-justify">
+                                    <?= str_replace(PHP_EOL, '<br>', $profile['tujuan']); ?>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +72,9 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <h3>Fungsi</h3>
-                                    <?= $profile['fungsi']; ?>
+                                </div>
+                                <div class="text-justify">
+                                    <?= str_replace(PHP_EOL, '<br>', $profile['fungsi']); ?>
                                 </div>
                             </div>
                         </div>
@@ -82,6 +88,8 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <h3>Kontak</h3>
+                                </div>
+                                <div>
                                     HP/WA : <?= $profile['no_hp']; ?> <br>
                                     E-mail &nbsp;&nbsp;: <?= $profile['email']; ?>
                                 </div>
@@ -96,8 +104,12 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3>Galeri</h3>
-                                    
+                                    <h3>Pembayaran</h3>
+                                </div>
+                                <div>
+                                    Nama Bank: <?= $profile['nama_bank']; ?> <br>
+                                    No. Rek &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $profile['no_rek']; ?> <br>
+                                    Atas Nama : <?= $profile['atas_nama']; ?> 
                                 </div>
                             </div>
                         </div>
@@ -111,7 +123,9 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <h3>Alamat</h3>
-                                    <?= $profile['alamat']; ?>
+                                </div>
+                                <div class="text-justify">
+                                    <?= str_replace(PHP_EOL, '<br>', $profile['alamat']); ?>
                                 </div>
                             </div>
                         </div>

@@ -7,12 +7,15 @@ class ModelProfile extends CI_model {
 
   public function updateProfile() {
     $data = [
-      "sejarah" => $this->input->post('sejarah'),
-      "visi"    => $this->input->post('visi'),
-      "misi"    => $this->input->post('misi'),
-      "no_hp"   => $this->input->post('no_hp', true),
-      "email"   => $this->input->post('email', true),
-      "alamat"  => $this->input->post('alamat')
+      "sejarah"   => $this->input->post('sejarah'),
+      "tujuan"    => $this->input->post('tujuan'),
+      "fungsi"    => $this->input->post('fungsi'),
+      "no_hp"     => $this->input->post('no_hp', true),
+      "email"     => $this->input->post('email', true),
+      "alamat"    => $this->input->post('alamat'),
+      "nama_bank" => $this->input->post('nama_bank'),
+      "no_rek"    => $this->input->post('no_rek'),
+      "atas_nama" => $this->input->post('atas_nama')
     ];
 
     
