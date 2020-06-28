@@ -6,5 +6,7 @@ class Login extends CI_Controller {
 	{
 		$data['title'] = "Login";
 		$this->load->view('public/choose-login', $data);
-  }
+	}
+	
+	
 }

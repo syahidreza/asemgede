@@ -2,12 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
+
+	public function __construct() 
+	{
+		parent::__construct();
+		
+	}
+
 	public function index()
 	{
+		if (!$this->session->userdata('id_peserta')) {			
+			redirect('user/login');
+		}
+
     $data['title'] = "Dashboard";
 
     $this->load->model('ModelPeserta');
-    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id);
+    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id_peserta);
 
 		$this->load->view('user/start', $data);
 		$this->load->view('user/index', $data);
@@ -16,9 +27,14 @@ class User extends CI_Controller {
 
 	public function dashboard()
 	{
+
+		if (!$this->session->userdata('id_peserta')) {			
+			redirect('user/login');
+		}
+
     $data['title'] = "Dashboard";
     $this->load->model('ModelPeserta');
-    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id);
+    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id_peserta);
 
 		$this->load->view('user/start', $data);
 		$this->load->view('user/index', $data);
@@ -27,6 +43,10 @@ class User extends CI_Controller {
 
 	public function login()
 	{
+		if ($this->session->userdata('id_peserta')) {			
+			redirect('user');
+		}
+
 		$data['title'] = "Login User";
 
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -47,7 +67,7 @@ class User extends CI_Controller {
 
     if ($user) {
       $data = [
-        'id' 			 => $user['id'],
+        'id_peserta'	 => $user['id'],
         'username' => $user['username']
       ];
       $this->session->set_userdata($data);
@@ -60,16 +80,20 @@ class User extends CI_Controller {
 
 	public function logout()  {
     
-    $this->session->unset_userdata('id');
+    $this->session->unset_userdata('id_peserta');
 		$this->session->unset_userdata('username');
 		
     redirect('user/login');
   }
 	
 	public function profile() {
+		if (!$this->session->userdata('id_peserta')) {			
+			redirect('user/login');
+		}
+		
 		$data['title'] = "Profil";
     $this->load->model('ModelPeserta');
-		$data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id);
+		$data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id_peserta);
 		
 		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
 		$this->form_validation->set_rules('nama_panggilan', 'Nama Panggilan', 'required');
@@ -87,9 +111,14 @@ class User extends CI_Controller {
 			$this->load->view('user/profile', $data);
 			$this->load->view('user/end');
 		} else {
-			$this->ModelPeserta->updatePeserta($this->session->id);
+			$this->ModelPeserta->updatePeserta($this->session->id_peserta);
 			$this->session->set_flashdata('flash', 'Profil berhasil diubah');
 			redirect('user/profile');
 		}
+	}
+
+	public function check()
+	{
+		var_dump($this->session->userdata());
 	}
 }

@@ -2,9 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+
+	public function __construct() 
+	{
+		parent::__construct();
+		
+	}
+
 	public function index()
 	{
-    $data['title'] = "Dashboard";
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+		
+		$data['title'] = "Dashboard";
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/index');
 		$this->load->view('admin/end');
@@ -12,7 +23,11 @@ class Admin extends CI_Controller {
 
 	public function dashboard()
 	{
-    $data['title'] = "Dashboard";
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
+		$data['title'] = "Dashboard";
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/index');
 		$this->load->view('admin/end');
@@ -20,6 +35,10 @@ class Admin extends CI_Controller {
 
 	public function login()
 	{
+		if ($this->session->userdata('id_admin')) {
+      redirect('admin');
+		}
+
 		$data['title'] = "Login Admin";
 
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -40,7 +59,7 @@ class Admin extends CI_Controller {
 
     if ($admin) {
       $data = [
-        'id' 			 => $admin['id'],
+        'id_admin' => $admin['id'],
         'username' => $admin['username']
       ];
       $this->session->set_userdata($data);
@@ -53,7 +72,7 @@ class Admin extends CI_Controller {
 	
 	public function logout()  {
     
-    $this->session->unset_userdata('id');
+    $this->session->unset_userdata('id_admin');
 		$this->session->unset_userdata('username');
 		
     redirect('admin/login');
@@ -61,6 +80,10 @@ class Admin extends CI_Controller {
 
 	public function profile()
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Profile";
 		
 		$this->load->model('ModelProfile');
@@ -90,6 +113,10 @@ class Admin extends CI_Controller {
 
 	public function galeri()
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Galeri";
 		
 		$this->load->model('ModelGaleri');
@@ -102,6 +129,10 @@ class Admin extends CI_Controller {
 
 	public function galeriTambah()
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Tambah Galeri";
 
 		$this->form_validation->set_rules('foto', 'Foto', 'required');
@@ -123,6 +154,10 @@ class Admin extends CI_Controller {
 
 	public function galeriEdit($id)
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Edit Galeri";
 
 		$this->load->model('ModelProfile');
@@ -146,6 +181,10 @@ class Admin extends CI_Controller {
 
 	public function galeriHapus($id)
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Edit Galeri";
 		$this->load->model('ModelGaleri');
 		$this->ModelPeserta->deleteGaleri($id);
@@ -156,6 +195,10 @@ class Admin extends CI_Controller {
 
 	public function peserta()
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Peserta Kursus";
 
 		$this->load->model('ModelPeserta');
@@ -169,6 +212,10 @@ class Admin extends CI_Controller {
 
 	public function detailPeserta($id)
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Detail Peserta";
 
 		$this->load->model('ModelPeserta');
@@ -181,6 +228,10 @@ class Admin extends CI_Controller {
 	}
 
 	public function delPeserta($id){
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$this->load->model('ModelPeserta');
 		$this->ModelPeserta->deletePeserta($id);
 
@@ -190,6 +241,10 @@ class Admin extends CI_Controller {
 
 	public function pendaftaran()
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Pendaftaran";
 
 		$this->load->model('ModelPendaftaran');
@@ -203,6 +258,10 @@ class Admin extends CI_Controller {
 
 	public function detailPendaftaran($id)
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$data['title'] = "Detail Pendaftaran";
 
 		$this->load->model('ModelPendaftaran');
@@ -215,6 +274,10 @@ class Admin extends CI_Controller {
 	}
 
 	public function verifikasi($id){
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$this->load->model('ModelPendaftaran');
 		$this->ModelPendaftaran->verifikasiPendaftaran($id);
 
@@ -223,6 +286,10 @@ class Admin extends CI_Controller {
 	}
 
 	public function delPendaftar($id){
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
 		$this->load->model('ModelPendaftaran');
 		$this->ModelPendaftaran->deletePendaftaran($id);
 
@@ -232,6 +299,10 @@ class Admin extends CI_Controller {
 
 	public function laporan()
 	{
+		if (!$this->session->userdata('id_admin')) {			
+			redirect('admin/login');
+		}
+
     $data['title'] = "Laporan";
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/laporan');
