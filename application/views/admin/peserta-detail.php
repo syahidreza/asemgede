@@ -24,13 +24,13 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="nama">Nama Lengkap</label>
-                      <p id="nama"><?= $peserta['nama_lengkap'];?></p>
+                      <label for="nama_lengkap">Nama Lengkap</label>
+                      <p id="nama_lengkap"><?= $peserta['nama_lengkap'];?></p>
                     </div>
 
                     <div class="form-group">
-                      <label for="nama">Nama Panggilan</label>
-                      <p id="nama"><?= $peserta['nama_panggilan'];?></p>
+                      <label for="nama_panggilan">Nama Panggilan</label>
+                      <p id="nama_panggilan"><?= $peserta['nama_panggilan'];?></p>
                     </div>
 
                     <div class="form-group">
@@ -52,12 +52,8 @@
                       <label for="tmpt_lahir">Tempat Lahir</label>
                       <p id="tmpt_lahir"><?= $peserta['tmpt_lahir'];?></p>
                     </div>
-
-                   
-
-                    
-
                   </div>
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="ttl">Tanggal Lahir</label>

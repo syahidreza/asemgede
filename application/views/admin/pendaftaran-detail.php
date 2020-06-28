@@ -42,7 +42,6 @@
                       <label for="password">Password</label>
                       <p id="password"><?= $pendaftar['password'];?></p>
                     </div>
-                    
     
                     <div class="form-group">
                       <label for="jk">Jenis Kelamin</label>
@@ -56,8 +55,6 @@
                   </div>
 
                   <div class="col-md-6">
-                    
-
                     <div class="form-group">
                       <label for="ttl">Tanggal Lahir</label>
                       <p id="ttl"><?= $pendaftar['tgl_lahir'];?></p>
