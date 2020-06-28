@@ -20,8 +20,8 @@
                         <?php endif; ?>
                         <div class="text-center">
                             <h2>Silakan melakukan pembayaran melalui transfer ke: </h2>
-                            <h1>Bank BJB - 0083770082100</h1>
-                            <h2>atas nama Sanggar Seni Asem Gede</h2>
+                            <h1><?= $profile['nama_bank'] .' - '. $profile['no_rek']; ?></h1>
+                            <h2>atas nama <?= $profile['atas_nama']; ?></h2>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col-md-12">
                         <div class="text-center">
                             <h2>Kirim bukti pembayaran ke WhatsApp</h2>
-                            <h1>089651858482</h1>
+                            <h1><?= $profile['no_hp']; ?></h1>
                             <h2>untuk validasi</h2>
                         </div>
                     </div>

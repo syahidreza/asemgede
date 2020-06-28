@@ -61,8 +61,12 @@ class Page extends CI_Controller {
 	public function pembayaran()
 	{
 		$data['title'] = "Pembayaran";
+
+		$this->load->model('ModelProfile');
+		$data['profile'] = $this->ModelProfile->getProfile();
+
 		$this->load->view('user/start', $data);
-		$this->load->view('user/pembayaran');
+		$this->load->view('user/pembayaran', $data);
 		$this->load->view('user/end');
 	}
 
