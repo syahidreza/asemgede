@@ -41,11 +41,22 @@
 <script src="<?=base_url().'assets/admin/';?>plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?=base_url().'assets/admin/';?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- datatable -->
+<script src="<?=base_url().'assets/admin/';?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=base_url().'assets/admin/';?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?=base_url().'assets/admin/';?>dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?=base_url().'assets/admin/';?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url().'assets/admin/';?>dist/js/demo.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() { 
+    $('#tblGaleri').DataTable(); 
+    $('#tblPeserta').DataTable(); 
+    $('#tblPendaftar').DataTable(); 
+  });
+</script>
 </body>
 </html>

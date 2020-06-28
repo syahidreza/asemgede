@@ -33,7 +33,7 @@
             <div class="card">
 
               <div class="card-body">
-                <table id="tblPendaftaran" class="table table-bordered table-striped">
+                <table id="tblPeserta" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>No. </th>
