@@ -1,7 +1,4 @@
-
     <main>
-
-
         <!-- Support Company Start-->
         <div class="support-company-area support-padding">
             <div class="container">
@@ -21,8 +18,10 @@
                                 <!-- <span> Company Profile</span> -->
                                 <h2>Welcome To <br> Sanggar Seni Asem Gede</h2>
                             </div>
-                            <div class="support-caption" style="font-size: 24px">
-                                <p>SANGGAR SENI ASEM GEDE berdiri sejak tahun 2009 yang bertujuan untuk melestarikan dan mengembangkan Seni Tari tradisonal, theater, Seni Rupa dan Music khususnya kesenian tradisional Trebang randu kentir losarang, Tari Topeng, Tari Topeng Slerek, Ronggeng Ketuk Indramayu, umumnya di Kabupaten dan Provinsi serta nasional.</p>
+                            <div class="support-caption" style="font-size: 20px">
+                                <div class="text-justify">
+                                    <?= str_replace(PHP_EOL, '<br>', $profile['sejarah']); ?>
+                                </div> <br>
                                 <div class="select-suport-items">
                                     <label class="single-items">Seni Tari
                                         <input type="checkbox" checked="checked active" disabled>

@@ -5,16 +5,24 @@ class Page extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Home";
+
+		$this->load->model('ModelProfile');
+		$data['profile'] = $this->ModelProfile->getProfile();
+
 		$this->load->view('public/start', $data);
-		$this->load->view('public/home');
+		$this->load->view('public/home', $data);
 		$this->load->view('public/end');
 	}
 
 	public function home()
 	{
 		$data['title'] = "Home";
+
+		$this->load->model('ModelProfile');
+		$data['profile'] = $this->ModelProfile->getProfile();
+
 		$this->load->view('public/start', $data);
-		$this->load->view('public/home');
+		$this->load->view('public/home', $data);
 		$this->load->view('public/end');
 	}
 
