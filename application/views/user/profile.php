@@ -53,8 +53,8 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3>Visi</h3>
-                                    <?= $profile['visi']; ?>
+                                    <h3>Tujuan</h3>
+                                    <?= $profile['tujuan']; ?>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3>Misi</h3>
-                                    <?= $profile['misi']; ?>
+                                    <h3>Fungsi</h3>
+                                    <?= $profile['fungsi']; ?>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
             <div class="row">
                  <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-12 text-lg-center" style="color: white">Copyright © Asem Gede 2020</div>
+                        <div class="col-lg-12 text-lg-center" style="color: white">Copyright &copy; Asem Gede <?=date('Y')?></div>
                         <br>
                         <div class="row pt-padding">
                             <div class="col-xl-5 col-lg-5 col-md-5">

@@ -47,15 +47,15 @@
                   </div>
     
                   <div class="form-group">
-                    <label for="visi">Visi</label>
-                    <textarea class="form-control" name="visi" id="visi" placeholder="Visi"><?= $profile['visi']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('visi'); ?></small>
+                    <label for="tujuan">Tujuan</label>
+                    <textarea class="form-control" name="tujuan" id="tujuan" placeholder="Tujuan"><?= $profile['tujuan']; ?></textarea>
+                    <small class="form-text text-danger"><?= form_error('tujuan'); ?></small>
                   </div>
     
                   <div class="form-group">
-                    <label for="misi">Misi</label>
-                    <textarea class="form-control" name="misi" id="misi" placeholder="Misi"><?= $profile['misi']; ?></textarea>
-                    <small class="form-text text-danger"><?= form_error('misi'); ?></small>
+                    <label for="fungsi">Fungsi</label>
+                    <textarea class="form-control" name="fungsi" id="fungsi" placeholder="Fungsi"><?= $profile['fungsi']; ?></textarea>
+                    <small class="form-text text-danger"><?= form_error('fungsi'); ?></small>
                   </div>
     
                   <div class="form-group">
