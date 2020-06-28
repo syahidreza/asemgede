@@ -26,7 +26,16 @@ class ModelPeserta extends CI_model {
     $this->db->where('id', $id);
     $this->db->update('peserta', $data);
   }
+
   public function deletePeserta($id) {
     return $this->db->delete('peserta', ['id' => $id]);
+  }
+
+  public function gantiPass($id){
+    $data = [
+      "password" => $this->input->post('pw_baru', true),
+    ];
+    $this->db->where('id', $id);
+    $this->db->update('peserta', $data);   
   }
 }

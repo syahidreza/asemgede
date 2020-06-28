@@ -90,7 +90,7 @@ class User extends CI_Controller {
 		if (!$this->session->userdata('id_peserta')) {			
 			redirect('user/login');
 		}
-		
+
 		$data['title'] = "Profil";
     $this->load->model('ModelPeserta');
 		$data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id_peserta);
@@ -116,9 +116,42 @@ class User extends CI_Controller {
 			redirect('user/profile');
 		}
 	}
-
-	public function check()
+	public function gantiPass()
 	{
-		var_dump($this->session->userdata());
+		if (!$this->session->userdata('id_peserta')) {
+      redirect('user/login');
+    }
+    
+    $data['title'] = 'Ganti Password Peserta';
+    $this->load->model('ModelPeserta');
+    $data['peserta'] = $this->ModelPeserta->getPeserta($this->session->id_peserta);
+    
+    $this->form_validation->set_rules('pw_lama', 'Password Lama', 'required');
+    $this->form_validation->set_rules('pw_baru', 'Password Baru', 'required');
+    $this->form_validation->set_rules('konf_pw_baru', 'Konfirmasi Password Baru', 'required');
+
+    if($this->form_validation->run() == false) {
+      $this->load->view('user/start', $data);
+      $this->load->view('user/ganti_pass', $data);
+      $this->load->view('user/end');
+    } else {
+      $pw_lama = $this->input->post('pw_lama', true);
+      $pw_baru = $this->input->post('pw_baru', true);
+      $konf    = $this->input->post('konf_pw_baru', true);
+
+      if ($pw_lama == $data['peserta']['password']) {
+        if ($konf == $pw_baru) {
+          $this->ModelPeserta->gantiPass($this->session->userdata('id_peserta'));
+          $this->session->set_flashdata('flash', 'Password berhasil diganti.');
+          redirect('user/gantiPass/');
+        } else {
+          $this->session->set_flashdata('flash', 'Password baru tidak sama.');
+          redirect('user/gantiPass/');
+        }
+      } else {
+        $this->session->set_flashdata('flash', 'Password lama salah.');
+         redirect('user/gantiPass/');
+      }
+    }
 	}
 }
