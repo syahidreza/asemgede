@@ -1,9 +1,9 @@
     <main>
         <!-- slider Area Start-->
         <!-- <div class="slider-area "> -->
-            <!-- Mobile Menu -->
-            <!-- <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/profile/2.png"> -->
-                <!-- <div class="container">
+        <!-- Mobile Menu -->
+        <!-- <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/profile/2.png"> -->
+        <!-- <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
@@ -12,7 +12,7 @@
                         </div>
                     </div>
                 </div> -->
-            <!-- </div>
+        <!-- </div>
         </div> -->
         <!-- slider Area End-->
 
@@ -35,7 +35,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<?=base_url().'assets/user/';?>dep/img/profile/profile.jpg" alt="">
+                                <img src="<?= base_url() . 'assets/user/'; ?>dep/img/profile/1.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -51,7 +51,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<?=base_url().'assets/user/';?>dep/img/profile/profile.jpg" alt="">   
+                                <img src="<?= base_url() . 'assets/user/'; ?>dep/img/profile/2.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -67,7 +67,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<?=base_url().'assets/user/';?>dep/img/profile/profile.jpg" alt="">
+                                <img src="<?= base_url() . 'assets/user/'; ?>dep/img/profile/3.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -83,7 +83,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<?=base_url().'assets/user/';?>dep/img/profile/profile.jpg" alt="">
+                                <img src="<?= base_url() . 'assets/user/'; ?>dep/img/profile/4.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -100,7 +100,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<?=base_url().'assets/user/';?>dep/img/profile/profile.jpg" alt="">
+                                <img src="<?= base_url() . 'assets/user/'; ?>dep/img/profile/5.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -109,7 +109,7 @@
                                 <div>
                                     Nama Bank: <?= $profile['nama_bank']; ?> <br>
                                     No. Rek &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $profile['no_rek']; ?> <br>
-                                    Atas Nama : <?= $profile['atas_nama']; ?> 
+                                    Atas Nama : <?= $profile['atas_nama']; ?>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<?=base_url().'assets/user/';?>dep/img/profile/profile.jpg" alt="">
+                                <img src="<?= base_url() . 'assets/user/'; ?>dep/img/profile/6.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -134,10 +134,10 @@
                 </div>
             </div>
         </div>
-        
 
-   <!-- Contact-->
-         <!-- <section style="background-color: grey">
+
+        <!-- Contact-->
+        <!-- <section style="background-color: grey">
              <div class="container" >
                 <div class="text-center">
                     <br>
@@ -176,31 +176,31 @@
             </div>
             <br>
          </section> -->
-            
 
 
-         <footer>
-        <!-- Footer Start-->
-        <div class="footer-area " style="background-color: grey">
-            <div class="row">
-                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12 text-lg-center" style="color: white">Copyright &copy; Asem Gede <?=date('Y')?></div>
-                        <br>
-                        <div class="row pt-padding">
-                            <div class="col-xl-5 col-lg-5 col-md-5">
-                                <!-- social -->
-                                <div class="footer-social f-right col-lg-4 my-3 my-lg-0 ">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+        <footer>
+            <!-- Footer Start-->
+            <div class="footer-area " style="background-color: grey">
+                <div class="row">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12 text-lg-center" style="color: white">Copyright &copy; Asem Gede <?= date('Y') ?></div>
+                            <br>
+                            <div class="row pt-padding">
+                                <div class="col-xl-5 col-lg-5 col-md-5">
+                                    <!-- social -->
+                                    <div class="footer-social f-right col-lg-4 my-3 my-lg-0 ">
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Footer End-->
-        </footer>   
+                <!-- Footer End-->
+        </footer>
 
     </main>
