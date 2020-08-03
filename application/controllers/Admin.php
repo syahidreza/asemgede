@@ -1,21 +1,21 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends CI_Controller
+{
 
-	public function __construct() 
+	public function __construct()
 	{
 		parent::__construct();
-		
 	}
 
 	public function index()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
-		
-		$data['title'] = "Dashboard";
+
+		$data['title']    = "Dashboard";
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/index');
 		$this->load->view('admin/end');
@@ -23,11 +23,11 @@ class Admin extends CI_Controller {
 
 	public function dashboard()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Dashboard";
+		$data['title']    = "Dashboard";
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/index');
 		$this->load->view('admin/end');
@@ -36,14 +36,14 @@ class Admin extends CI_Controller {
 	public function login()
 	{
 		if ($this->session->userdata('id_admin')) {
-      redirect('admin');
+			redirect('admin');
 		}
 
-		$data['title'] = "Login Admin";
+		$data['title']    = "Login Admin";
 
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
-		
+
 		if ($this->form_validation->run() == false) {
 			$this->load->view('admin/login', $data);
 		} else {
@@ -51,43 +51,45 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	private function _login() {
-    $username = $this->input->post('username');
-    $password = $this->input->post('password');
+	private function _login()
+	{
+		$username   = $this->input->post('username');
+		$password   = $this->input->post('password');
 
-    $admin = $this->db->get_where('admin', ['username' => $username, 'password' => $password])->row_array();
+		$admin      = $this->db->get_where('admin', ['username' => $username, 'password' => $password])->row_array();
 
-    if ($admin) {
-      $data = [
-        'id_admin' => $admin['id'],
-        'username' => $admin['username']
-      ];
-      $this->session->set_userdata($data);
-      redirect('admin/dashboard');
-    } else {
-      $this->session->set_flashdata('flash', 'Username / Password salah');
-      redirect('admin/login');
-    }
+		if ($admin) {
+			$data = [
+				'id_admin' => $admin['id'],
+				'username' => $admin['username']
+			];
+			$this->session->set_userdata($data);
+			redirect('admin/dashboard');
+		} else {
+			$this->session->set_flashdata('flash', 'Username / Password salah');
+			redirect('admin/login');
+		}
 	}
-	
-	public function logout()  {
-    
-    $this->session->unset_userdata('id_admin');
+
+	public function logout()
+	{
+
+		$this->session->unset_userdata('id_admin');
 		$this->session->unset_userdata('username');
-		
-    redirect('admin/login');
-  }
+
+		redirect('admin/login');
+	}
 
 	public function profile()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Profile";
-		
+		$data['title']    = "Profile";
+
 		$this->load->model('ModelProfile');
-		$data['profile'] = $this->ModelProfile->getProfile();
+		$data['profile']  = $this->ModelProfile->getProfile();
 
 		$this->form_validation->set_rules('sejarah', 'Sejarah', 'required');
 		$this->form_validation->set_rules('tujuan', 'Tujuan', 'required');
@@ -98,8 +100,8 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('nama_bank', 'Nama Bank', 'required');
 		$this->form_validation->set_rules('no_rek', 'No. Rekening', 'required');
 		$this->form_validation->set_rules('atas_nama', 'Atas Nama', 'required');
-		
-		if($this->form_validation->run() == False) {
+
+		if ($this->form_validation->run() == False) {
 			$this->load->view('admin/start', $data);
 			$this->load->view('admin/profile', $data);
 			$this->load->view('admin/end');
@@ -108,19 +110,18 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('flash', 'Profile berhasil diubah');
 			redirect('admin/profile');
 		}
-		
 	}
 
 	public function galeri()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Galeri";
-		
+		$data['title']    = "Galeri";
+
 		$this->load->model('ModelGaleri');
-		$data['galeri'] = $this->ModelGaleri->getAllGaleri();
+		$data['galeri']   = $this->ModelGaleri->getAllGaleri();
 
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/galeri');
@@ -129,27 +130,27 @@ class Admin extends CI_Controller {
 
 	public function galeriTambah()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Tambah Galeri";
+		$data['title']            = "Tambah Galeri";
 		$this->load->model('ModelGaleri');
 
 		// $this->form_validation->set_rules('foto', 'Foto', 'required');
 		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
-		
-		
-		if($this->form_validation->run() == False) {
+
+
+		if ($this->form_validation->run() == False) {
 			$this->load->view('admin/start', $data);
 			$this->load->view('admin/galeri-tambah');
 			$this->load->view('admin/end');
 		} else {
-			$config['upload_path']          = './upload/galeri/';
-			$config['allowed_types']        = 'gif|jpg|png|jpeg';
-			$config['file_name']            = mt_rand(00000, 99999);
-			$config['overwrite']			      = true;
-			$config['max_size']             = 1024; 
+			$config['upload_path']   = './upload/galeri/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['file_name']     = mt_rand(00000, 99999);
+			$config['overwrite']     = true;
+			$config['max_size']      = 1024;
 			// $config['max_width']            = 1024;
 			// $config['max_height']           = 768;
 
@@ -161,34 +162,32 @@ class Admin extends CI_Controller {
 				redirect('admin/galeri');
 			}
 		}
-
-		
 	}
 
 	public function galeriEdit($id)
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Edit Galeri";
+		$data['title']            = "Edit Galeri";
 
 		$this->load->model('ModelGaleri');
-		$data['galeri'] = $this->ModelGaleri->getGaleri($id);
+		$data['galeri']           = $this->ModelGaleri->getGaleri($id);
 
 		// $this->form_validation->set_rules('foto', 'Foto', 'isset');
 		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
-		
-		if($this->form_validation->run() == False) {
+
+		if ($this->form_validation->run() == False) {
 			$this->load->view('admin/start', $data);
 			$this->load->view('admin/galeri-edit');
 			$this->load->view('admin/end');
 		} else {
-			$config['upload_path']          = './upload/galeri/';
-			$config['allowed_types']        = 'gif|jpg|png|jpeg';
-			$config['file_name']            = $data['galeri']['foto'];
-			$config['overwrite']			      = true;
-			$config['max_size']             = 1024; 
+			$config['upload_path']   = './upload/galeri/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['file_name']     = $data['galeri']['foto'];
+			$config['overwrite']     = true;
+			$config['max_size']      = 1024;
 			// $config['max_width']            = 1024;
 			// $config['max_height']           = 768;
 
@@ -198,7 +197,7 @@ class Admin extends CI_Controller {
 				$this->ModelGaleri->updateGaleri($id);
 				$this->session->set_flashdata('flash', 'Galeri berhasil diubah.');
 				redirect('admin/galeri');
-			}else{
+			} else {
 				$this->session->set_flashdata('flash', 'Galeri gagal diubah.');
 				redirect('admin/galeri');
 			}
@@ -208,11 +207,11 @@ class Admin extends CI_Controller {
 
 	public function galeriHapus($id)
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Hapus Galeri";
+		$data['title']    = "Hapus Galeri";
 		$this->load->model('ModelGaleri');
 		$this->ModelGaleri->deleteGaleri($id);
 
@@ -222,15 +221,15 @@ class Admin extends CI_Controller {
 
 	public function peserta()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Peserta Kursus";
+		$data['title']    = "Peserta Kursus";
 
 		$this->load->model('ModelPeserta');
-		
-		$data['peserta'] = $this->ModelPeserta->getAllPeserta();
+
+		$data['peserta']  = $this->ModelPeserta->getAllPeserta();
 
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/peserta', $data);
@@ -239,23 +238,24 @@ class Admin extends CI_Controller {
 
 	public function detailPeserta($id)
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Detail Peserta";
+		$data['title']    = "Detail Peserta";
 
 		$this->load->model('ModelPeserta');
-		
-		$data['peserta'] = $this->ModelPeserta->getPeserta($id);
+
+		$data['peserta']  = $this->ModelPeserta->getPeserta($id);
 
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/peserta-detail', $data);
 		$this->load->view('admin/end');
 	}
 
-	public function delPeserta($id){
-		if (!$this->session->userdata('id_admin')) {			
+	public function delPeserta($id)
+	{
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
@@ -268,15 +268,15 @@ class Admin extends CI_Controller {
 
 	public function pendaftaran()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Pendaftaran";
+		$data['title']          = "Pendaftaran";
 
 		$this->load->model('ModelPendaftaran');
-		
-		$data['pendaftaran'] = $this->ModelPendaftaran->getAllPendaftaran();
+
+		$data['pendaftaran']    = $this->ModelPendaftaran->getAllPendaftaran();
 
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/pendaftaran', $data);
@@ -285,23 +285,24 @@ class Admin extends CI_Controller {
 
 	public function detailPendaftaran($id)
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-		$data['title'] = "Detail Pendaftaran";
+		$data['title']        = "Detail Pendaftaran";
 
 		$this->load->model('ModelPendaftaran');
-		
-		$data['pendaftar'] = $this->ModelPendaftaran->getPendaftaran($id);
+
+		$data['pendaftar']    = $this->ModelPendaftaran->getPendaftaran($id);
 
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/pendaftaran-detail', $data);
 		$this->load->view('admin/end');
 	}
 
-	public function verifikasi($id){
-		if (!$this->session->userdata('id_admin')) {			
+	public function verifikasi($id)
+	{
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
@@ -312,8 +313,9 @@ class Admin extends CI_Controller {
 		redirect('admin/pendaftaran');
 	}
 
-	public function delPendaftar($id){
-		if (!$this->session->userdata('id_admin')) {			
+	public function delPendaftar($id)
+	{
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
@@ -326,13 +328,52 @@ class Admin extends CI_Controller {
 
 	public function laporan()
 	{
-		if (!$this->session->userdata('id_admin')) {			
+		if (!$this->session->userdata('id_admin')) {
 			redirect('admin/login');
 		}
 
-    $data['title'] = "Laporan";
+		$data['title']    = "Laporan";
 		$this->load->view('admin/start', $data);
 		$this->load->view('admin/laporan');
 		$this->load->view('admin/end');
+	}
+
+	public function gantiPass()
+	{
+		if (!$this->session->userdata('id_admin')) {
+			redirect('user/login');
+		}
+
+		$data['title']    = 'Ganti Password Admin';
+		$this->load->model('ModelAdmin');
+		$data['admin']    = $this->ModelAdmin->getAdmin($this->session->id_admin);
+
+		$this->form_validation->set_rules('pw_lama', 'Password Lama', 'required');
+		$this->form_validation->set_rules('pw_baru', 'Password Baru', 'required');
+		$this->form_validation->set_rules('konf_pw_baru', 'Konfirmasi Password Baru', 'required');
+
+		if (!$this->form_validation->run()) {
+			$this->load->view('admin/start', $data);
+			$this->load->view('admin/ganti_pass', $data);
+			$this->load->view('admin/end');
+		} else {
+			$pw_lama   = $this->input->post('pw_lama', true);
+			$pw_baru   = $this->input->post('pw_baru', true);
+			$konf      = $this->input->post('konf_pw_baru', true);
+
+			if ($pw_lama == $data['admin']['password']) {
+				if ($konf == $pw_baru) {
+					$this->ModelAdmin->gantiPass($this->session->userdata('id_admin'));
+					$this->session->set_flashdata('flash', 'Password berhasil diganti.');
+					redirect('admin/gantiPass/');
+				} else {
+					$this->session->set_flashdata('flash', 'Password baru tidak sama.');
+					redirect('admin/gantiPass/');
+				}
+			} else {
+				$this->session->set_flashdata('flash', 'Password lama salah.');
+				redirect('admin/gantiPass/');
+			}
+		}
 	}
 }
