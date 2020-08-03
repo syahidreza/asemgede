@@ -1,51 +1,51 @@
 <main>
-        <!-- PROFILE -->
-        <div class="favourite-place pt-padding " id="profile">
-            <div class="container">
+    <!-- PROFILE -->
+    <div class="favourite-place pt-padding " id="profile">
+        <div class="container">
 
-                <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
+            <!-- Section Tittle -->
+            <div class="row">
+                <div class="col-lg-12">
                     <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-secondary alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <strong><?= $this->session->flashdata('flash'); ?></strong> 
-                            </div>
-                            
-                            <script>
-                            $(".alert").alert();
-                            </script>
-                        <?php endif; ?>
-                        <div class="text-center">
-                            <h2>Silakan melakukan pembayaran melalui transfer ke: </h2>
-                            <h1><?= $profile['nama_bank'] .' - '. $profile['no_rek']; ?></h1>
-                            <h2>atas nama <?= $profile['atas_nama']; ?></h2>
+                            <strong><?= $this->session->flashdata('flash'); ?></strong>
                         </div>
+
+                        <script>
+                            $(".alert").alert();
+                        </script>
+                    <?php endif; ?>
+                    <div class="text-center">
+                        add <h2>Silakan melakukan pembayaran sebesar <b>Rp. 50.000</b> melalui transfer ke: </h2>
+                        <h1><?= $profile['nama_bank'] . ' - ' . $profile['no_rek']; ?></h1>
+                        <h2>atas nama <?= $profile['atas_nama']; ?></h2>
                     </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h2>Kirim bukti pembayaran ke WhatsApp</h2>
-                            <h1><?= $profile['no_hp']; ?></h1>
-                            <h2>untuk validasi</h2>
-                        </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h2>Kirim bukti pembayaran ke WhatsApp</h2>
+                        <h1><?= $profile['no_hp']; ?></h1>
+                        <h2>untuk validasi</h2>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-         <footer>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
         <!-- Footer Start-->
         <div class="footer-area " style="background-color: grey">
             <div class="row">
-                 <div class="container">
+                <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-12 text-lg-center" style="color: white">Copyright © Asem Gede 2020</div>
                         <br>
@@ -58,11 +58,11 @@
                                     <a href="#"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer End-->
-        </footer>
+            <!-- Footer End-->
+    </footer>
 
-    </main>
+</main>
