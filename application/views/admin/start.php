@@ -115,7 +115,7 @@
             <li class="nav-item">
               <a href="<?= base_url() . 'admin/gantiPass'; ?>" class="nav-link">
                 <i class="nav-icon far fa-circle text-info"></i>
-                <p>Ganti Password</p>
+                <p>Pengaturan</p>
               </a>
             </li>
             <!--  -->
