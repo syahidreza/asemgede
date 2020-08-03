@@ -19,7 +19,7 @@
                         </script>
                     <?php endif; ?>
                     <div class="text-center">
-                        add <h2>Silakan melakukan pembayaran sebesar <b>Rp. 50.000</b> melalui transfer ke: </h2>
+                        <h2>Silakan melakukan pembayaran sebesar <b>Rp. 50.000</b> melalui transfer ke: </h2>
                         <h1><?= $profile['nama_bank'] . ' - ' . $profile['no_rek']; ?></h1>
                         <h2>atas nama <?= $profile['atas_nama']; ?></h2>
                     </div>
