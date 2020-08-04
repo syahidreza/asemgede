@@ -18,18 +18,18 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-md-12">
-          <?php if ($this->session->flashdata('flash')) : ?>
-            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <strong><?= $this->session->flashdata('flash'); ?></strong> 
-            </div>
-            
-            <script>
-              $(".alert").alert();
-            </script>
-          <?php endif; ?>
+            <?php if ($this->session->flashdata('flash')) : ?>
+              <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <strong><?= $this->session->flashdata('flash'); ?></strong>
+              </div>
+
+              <script>
+                $(".alert").alert();
+              </script>
+            <?php endif; ?>
             <div class="card">
 
               <div class="card-body">
@@ -44,38 +44,38 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <?php 
-                    $no = 1; 
+                    <?php
+                    $no = 1;
                     foreach ($pendaftaran as $pd) :
-                  ?>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        <a href="detailPendaftaran/<?=$pd['id'];?>"><?= $pd['nama_lengkap'];?></a>
-                      </td>
-                      <td><?= $pd['jk'];?></td>
-                      <td><?= $pd['divisi'];?></td>
-                      <td>
-                        <div class="btn-group">
-                          <a href="<?= base_url().'admin/verifikasi/'.$pd['id'];?>" class="btn btn-sm btn-warning" title="Verifikasi">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                          </a>
-                          <a href="<?= base_url().'admin/delPendaftar/'.$pd['id'];?>" class="btn btn-sm btn-danger" title="Hapus">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                  <?php 
-                    $no++;
+                    ?>
+                      <tr>
+                        <td><?= $no; ?></td>
+                        <td>
+                          <a href="detailPendaftaran/<?= $pd['id']; ?>"><?= $pd['nama_lengkap']; ?></a>
+                        </td>
+                        <td><?= $pd['jk']; ?></td>
+                        <td><?= $pd['divisi']; ?></td>
+                        <td>
+                          <div class="btn-group">
+                            <a onclick="return confirm('Apakah anda yakin ingin memverifikasi?');" href="<?= base_url() . 'admin/verifikasi/' . $pd['id']; ?>" class="btn btn-sm btn-warning" title="Verifikasi">
+                              <i class="fa fa-check" aria-hidden="true"></i>
+                            </a>
+                            <a onclick="return confirm('Apakah anda yakin ingin menghapus?');" href="<?= base_url() . 'admin/delPendaftar/' . $pd['id']; ?>" class="btn btn-sm btn-danger" title="Hapus">
+                              <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    <?php
+                      $no++;
                     endforeach;
-                  ?>
+                    ?>
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
-            
+
           </div>
         </div>
         <!-- /.row (main row) -->

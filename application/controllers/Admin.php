@@ -150,7 +150,7 @@ class Admin extends CI_Controller
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['file_name']     = mt_rand(00000, 99999);
 			$config['overwrite']     = true;
-			$config['max_size']      = 1024;
+			$config['max_size']      = 2048;
 			// $config['max_width']            = 1024;
 			// $config['max_height']           = 768;
 
@@ -187,7 +187,7 @@ class Admin extends CI_Controller
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['file_name']     = $data['galeri']['foto'];
 			$config['overwrite']     = true;
-			$config['max_size']      = 1024;
+			$config['max_size']      = 2048;
 			// $config['max_width']            = 1024;
 			// $config['max_height']           = 768;
 
