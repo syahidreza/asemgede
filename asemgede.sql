@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 28, 2020 at 09:23 AM
+-- Generation Time: Aug 03, 2020 at 03:42 AM
 -- Server version: 10.4.8-MariaDB-log
--- PHP Version: 7.4.2
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nama`, `username`, `password`) VALUES
-(1, 'Administrator', 'admin', 'admin');
+(1, 'Administrator', 'admin', '123');
 
 -- --------------------------------------------------------
 
